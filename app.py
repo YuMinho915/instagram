@@ -10,7 +10,7 @@ db = client.dbinstagram
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('instagram.html')
 
 # 구현정 댓글 작업 중==============================================================
 # 댓글 달기
