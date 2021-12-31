@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from requests.api import post
 from datetime import datetime
 app = Flask(__name__)
+from bs4 import BeautifulSoup
 import requests
 import certifi
 from pymongo import MongoClient
@@ -10,7 +11,7 @@ db = client.dbinstagram
 
 @app.route('/')
 def index():
-    return render_template('instagram.html')
+    return render_template('instagrem.html')
 
 # 구현정 댓글 작업 중==============================================================
 # 댓글 달기
@@ -34,6 +35,7 @@ def insta_comment():
     db.comment.insert_one(doc)
 
     return jsonify({'msg': 'POST /comment/ 저장'})
+
 
 
 
