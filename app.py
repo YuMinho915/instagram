@@ -25,11 +25,12 @@ def comment_get():
 @app.route("/comment", methods=["POST"])
 def insta_comment():
     # user_name_receive = request.form['user_name_give']
-    # post_num_receive = request.form['post_num_give']
+    post_num_receive = request.form['post_num_give']
     comment_receive = request.form['comment_give']
 
     doc = {
-        'comment': comment_receive
+        'comment': comment_receive,
+        'post_num' : post_num_receive
     }
 
     db.comment.insert_one(doc)

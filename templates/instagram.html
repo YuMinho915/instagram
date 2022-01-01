@@ -80,7 +80,15 @@
                             <p>𝖍𝖆𝖗𝖗𝖞 𝖕𝖔𝖙𝖙𝖗𝖙</p>
                         </div>
                         <div class="right-wrapper">
-                            <img src="../static/more@3x.png">
+                            <div class="dropdown">
+                                <button class="dropbtn"><img src="../static/more@3x.png"></button>
+                                <div class="dropdown-content">
+                                  <a href="#">게시물 숨기기</a>
+                                  <a href="#">신고</a>
+                                  <a href="#">팔로우 취소</a>
+                                  <a href="#">링크 복사</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="post-body">
@@ -111,7 +119,7 @@
                         <div class="input-group mb-3">
                             <input type="text" id="comment" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="Recipient's username" >
                             <div class="input-group-append">
-                              <button onclick="save_comment()" class="btn btn-outline-secondary" type="button" id="button-addon2">입력</button>
+                              <button class="comment-btn" onclick="save_comment()">입력</button>
                             </div>
                         </div>
                         <p class="post-time">
@@ -189,12 +197,6 @@
                         <div class="post-content-wrapper">
                             <p class="post-author">도비는자유야</p>
                             <p class="post-content">주인장 어서와</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                            </div>
                         </div>
                         <p class="post-time">
                             7시간 전

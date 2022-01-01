@@ -1,5 +1,5 @@
-<style>
-        * {
+
+* {
   font-family: 'Gowun Dodum', sans-serif;
   font-weight: bolder;
 }
@@ -184,12 +184,43 @@ body {
 }
 
 /* 댓글 css */
-.post-comment {
-    display: flex;
-    justify-content: flex-start;
-    margin: 0% 2% 0% 2%;
-    font-size: 13px;
-}
+/* 댓글 CSS */
+  .post-comment {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0% 2% 0% 2%;
+  font-size: 14px;
+  }
+  .comment-btn {
+  background-color: white;
+  border-color: white;
+  box-shadow: none
+  }
+  /* more-btn CSS */
+  .dropbtn {
+  background-color: white;
+  border-color: white;
+  }
+  .dropdown {
+  position: relative;
+  display: inline-block;
+  }
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  }
+  .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  }
+  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown:hover .dropdown-content {display: block;}
 
 /* 포스트 - 푸터 */
 .post-footer {
@@ -262,7 +293,3 @@ body {
 #footer #icon-wrapper img {
   width: 6%;
 }
-
-
-
-    </style>
