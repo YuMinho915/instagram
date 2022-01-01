@@ -1,6 +1,7 @@
 * {
     font-family: 'Gowun Dodum', sans-serif;
     font-weight: bolder;
+    margin: 0; padding: 0;
 }
 
 
@@ -11,37 +12,136 @@ body {
 
 /* 헤더 */
 #header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f6f6f6;
-    align-items: center;
     width: 100%;
-    position: fixed;
     max-width: 720px;
-    border-bottom: 1px solid lightgray;
+    height: 12%;
+    position: fixed;
+    background-color: #f6f6f6;
 }
 
-#header #logo {
-    width: 20%;
+
+.header-top {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+#header .header-id {
+    padding-top: 4%;
+    padding-left: 3%;
 }
 
 #header .header-icon {
-    margin: 3% 5%;
-    width: 6%;
+    width: 35px;
+    height: 35px;
+    margin: 3%;
+}
 
+.header-icon img {
 }
 
 
 /* 컨테이너 */
 #container {
-    padding-top: 12%;
-    padding-bottom: 12%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
+
+
+#intro-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 1%;
+}
+
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+    margin-left: 3%;
+}
+
+
+
+.image-wrapper img {
+    width: 15vw;
+    max-width: 100px;
+    max-height: 100px;
+    height: 15vw;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(#f6f6f6, #f6f6f6),
+    linear-gradient(to right, #ff7700, #ff3636aa, #ff00c3);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.count-container {
+    width: 70%;
+    height: 20vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+
+}
+
+
+.count-post {
+    width: 30vw;
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.count-follower {
+    width: 30vw;
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.count-following {
+    width: 30vw;
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ment-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 6%;
+}
+
+.ment-container p {
+    font-size: 13px;
+}
+
 
 /* 스토리 */
 #story-container {
-    background-color: white;
-    padding: 0.5%;
+    padding: 0.3%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -57,6 +157,7 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
 
 .story-wrapper .story-on {
     width: 11vw;
@@ -100,7 +201,7 @@ body {
 }
 
 .story-wrapper p {
-    margin-top: 3%;
+    margin-top: 5%;
     margin-bottom: 0;
     font-size: 12px;
     font-weight: bolder;
@@ -112,6 +213,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
+
 }
 
 .right-wrapper {
@@ -133,10 +235,8 @@ body {
 .post-header .left-wrapper img {
     width: 15%;
     height: 15%;
-    border-radius: 50%;
-    border: 1px solid lightgray;
-    margin-top: 4%
-    margin-bottom: 5%;
+    margin: 4% 45%;
+
 }
 
 .post-header .left-wrapper p {
@@ -150,39 +250,34 @@ body {
 }
 
 
-/* 포스트 - 바디 */
-.post-body img {
-    width: 95%;
-    height: 100%;
-    padding-left: 2.5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/*포스트 - 바디*/
 
-.post-body .post-icons-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.post-body {
     width: 100%;
 }
 
-.post-body .post-icons-wrapper .left-wrapper .post-icon {
-    margin: 5%;
-    width: 12%;
+
+.post-wrapper {
+    display: flex;
 }
 
-.post-body .post-icons-wrapper .left-wrapper .post-icon-2 {
-    margin: 2% 4%;
-    width: 11%;
+.post-body article {
+    float: left;
+    margin-left: 3px;
+    margin-bottom: 3px;
 }
 
-.post-body .post-icons-wrapper .right-wrapper img {
-    margin: 2% 4%;
-    width: 10%;
+.post-body img {
+   border-bottom: 1px solid black;
+    display: block;
+
+    weight: 30%;
 }
 
-/* 포스트 - 푸터 */
+
+/*포스트 - 푸터*/
+
+
 .post-footer {
     padding-left: 2%;
     border-bottom: 1px solid lightgray;
@@ -215,13 +310,13 @@ body {
 }
 
 .post-footer .post-content-wrapper .post-author {
-    margin: 0% 2% 0% 2%;
+    margin: 0 2% 0 2%;
     font-weight: bold;
     font-size: 13px;
 }
 
 .post-footer .post-content-wrapper .post-content {
-    margin: 0%;
+    margin: 0;
     font-size: 14px;
 }
 

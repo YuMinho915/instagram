@@ -1,0 +1,255 @@
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-weight: bolder;
+}
+
+
+body {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* 헤더 */
+#header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f6f6f6;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    max-width: 720px;
+    border-bottom: 1px solid lightgray;
+}
+
+#header #logo {
+    width: 20%;
+}
+
+#header .header-icon {
+    margin: 3% 5%;
+    width: 6%;
+
+}
+
+
+/* 컨테이너 */
+#container {
+    padding-top: 12%;
+    padding-bottom: 12%;
+}
+
+/* 스토리 */
+#story-container {
+    background-color: white;
+    padding: 0.5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 1px solid lightgray;
+}
+
+.story-wrapper {
+    width: auto;
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.story-wrapper .story-on {
+    width: 11vw;
+    max-width: 80px;
+    max-height: 80px;
+    height: 11vw;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(#f6f6f6, #f6f6f6),
+    linear-gradient(to right, #ff7700, #ff3636aa, #ff00c3);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.story-wrapper .story-off {
+    width: 11vw;
+    max-width: 80px;
+    max-height: 80px;
+    height: 11vw;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(#f6f6f6, #f6f6f6),
+    linear-gradient(#c4c4c4, #c4c4c4);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.story-wrapper img {
+    width: 92%;
+    height: 92%;
+    border-radius: 50%;
+}
+
+.story-wrapper p {
+    margin-top: 3%;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+/* 포스트 - 공통 */
+.left-wrapper {
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.right-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin-right: 3%;
+}
+
+/* 포스트 - 헤더 */
+.post-header {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.post-header .left-wrapper img {
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    margin-top: 4%;
+    margin-bottom: 5%;
+}
+
+.post-header .left-wrapper p {
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.post-header .right-wrapper img {
+    margin-right: 3%;
+}
+
+
+/* 포스트 - 바디 */
+.post-body img {
+    width: 95%;
+    height: 100%;
+    padding-left: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-body .post-icons-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.post-body .post-icons-wrapper .left-wrapper .post-icon {
+    margin: 5%;
+    width: 12%;
+}
+
+.post-body .post-icons-wrapper .left-wrapper .post-icon-2 {
+    margin: 2% 4%;
+    width: 11%;
+}
+
+.post-body .post-icons-wrapper .right-wrapper img {
+    margin: 2% 4%;
+    width: 10%;
+}
+
+/* 포스트 - 푸터 */
+.post-footer {
+    padding-left: 2%;
+    border-bottom: 1px solid lightgray;
+}
+
+.post-footer .post-like-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.post-footer .post-like-wrapper img {
+    width: 6%;
+    height: 6%;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    margin: 0 1%;
+}
+
+.post-footer .post-like-wrapper p {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 13px;
+}
+
+.post-footer .post-content-wrapper {
+    display: flex;
+}
+
+.post-footer .post-content-wrapper .post-author {
+    margin: 0% 2% 0% 2%;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.post-footer .post-content-wrapper .post-content {
+    margin: 0%;
+    font-size: 14px;
+}
+
+.post-footer .post-time {
+    color: gray;
+    font-size: 12px;
+    margin-left: 2%;
+    margin-top: 4%;
+}
+
+/* 푸터 */
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 720px;
+    border-top: 1px solid lightgray;
+    background-color: #f6f6f6;
+
+}
+
+#footer #icon-wrapper {
+    margin: 3% 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer #icon-wrapper img {
+    width: 6%;
+}
