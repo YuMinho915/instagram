@@ -48,6 +48,7 @@ body {
 
 
 #header .header-icon {
+    width: 8%;
     margin: 2% 5%;
     padding: 1.5%;
 
@@ -150,7 +151,6 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
     border-bottom: 1px solid lightgray;
 }
 
@@ -269,11 +269,14 @@ body {
 
 
 /*포스트 - 바디*/
-
+.post-body {
+    overflow: hidden;
+}
 
 .post-img article {
     float: left;
-    margin-left: 1px;
+    width: 33%;
+    margin-left: auto;
 }
 
 
