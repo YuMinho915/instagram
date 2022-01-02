@@ -11,51 +11,71 @@
     <title>인스타 로그인페이지</title>
 </head>
 <body>
-<div class="login_container">
-    <div class="login_wrap">
 
-        <div class="login_wrap_input">
-            <input type="text" id="login_email" required >
-            <label for="login_email">이메일</label>
+    <div class="login_container">
+        <div class="login_wrap">
+            <img id="logo" src="../static/img/insta-logo.png" />
+            <div class="login_wrap_input">
+                <input type="text" id="login_email" required >
+                <label for="login_email">이메일</label>
+            </div>
+
+            <div class="login_wrap_input">
+                <input type="password" id="login_pw" required>
+                <label for="login_pw">비밀번호</label>
+            </div>
+
+            <div>
+                <button onclick="login()">로그인</button>
+                <button onclick="register_change()">회원가입하기</button>
+            </div>
         </div>
-
-        <div class="login_wrap_input">
-            <input type="password" id="login_pw" required>
-            <label for="login_pw">비밀번호</label>
+        <div class="download">
+            <p>앱을 다운로드하세요.</p>
         </div>
-
-        <div>
-            <button onclick="login()">로그인</button>
-            <button onclick="register_change()">회원가입하기</button>
+        <div class="footer">
+            <div id="icon-wrapper">
+                <img id="app" onClick="location.href='https://apps.apple.com/app/instagram/id389801252?vt=lo'" src="../static/img/appstore.png">
+                <img id="play" onClick="location.href='https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb&utm_campaign=loginPage&ig_mid=FA0B1D86-304B-42D4-94C8-97C5159FE414&utm_content=lo&utm_medium=badge'" src="../static/img/playstore.png">
+            </div>
         </div>
     </div>
-</div>
 
-<div class="register_container">
-    <div class="login_wrap">
-        <div class="login_wrap_input">
-            <input type="text" id="email" required>
-            <label for="email">이메일</label>
+    <div class="register_container">
+        <div class="login_wrap">
+            <img id="logo" src="../static/img/insta-logo.png" />
+            <div class="login_wrap_input">
+                <input type="text" id="email" required>
+                <label for="email">이메일</label>
 
+            </div>
+            <div class="login_wrap_input">
+                <input type="text" id="name" required>
+                <label for="pw">성명</label>
+            </div>
+            <div class="login_wrap_input">
+                <input type="text" id="nickname" required>
+                <label for="pw">사용자 이름</label>
+            </div>
+            <div class="login_wrap_input">
+                <input type="password" id="pw" required>
+                <label for="pw">비밀번호</label>
+            </div>
+            <div>
+                <button onclick="register()">회원가입</button>
+                <button onclick="register_change2()">취소</button>
+            </div>
         </div>
-        <div class="login_wrap_input">
-            <input type="text" id="name" required>
-            <label for="pw">성명</label>
+        <div class="download">
+            <p>앱을 다운로드하세요.</p>
         </div>
-        <div class="login_wrap_input">
-            <input type="text" id="nickname" required>
-            <label for="pw">사용자 이름</label>
-        </div>
-        <div class="login_wrap_input">
-            <input type="password" id="pw" required>
-            <label for="pw">비밀번호</label>
-        </div>
-        <div>
-            <button onclick="register()">회원가입</button>
-            <button onclick="register_change2()">취소</button>
+        <div class="footer">
+            <div id="icon-wrapper">
+                <img id="app" onClick="location.href='https://apps.apple.com/app/instagram/id389801252?vt=lo'" src="../static/img/appstore.png">
+                <img id="play" onClick="location.href='https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb&utm_campaign=loginPage&ig_mid=FA0B1D86-304B-42D4-94C8-97C5159FE414&utm_content=lo&utm_medium=badge'" src="../static/img/playstore.png">
+            </div>
         </div>
     </div>
-</div>
 
 <script src="../static/js/login.js"></script>
 </body>

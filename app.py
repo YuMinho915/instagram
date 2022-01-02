@@ -55,7 +55,32 @@ def is_password(pwd):
         return True
 #############################################################################################
 
-#################  api 하는곳 ################
+######현정님 댓글 작업############
+
+# 댓글 달기
+@app.route("/comment", methods=["GET"])
+def comment_get():
+    comment_list = list(db.comment.find({},{'_id':False}))
+    return jsonify({'comment':comment_list,'msg': 'GET 연결 완료!'})
+
+
+# 댓글 user 정보랑 저장.
+@app.route("/comment", methods=["POST"])
+def insta_comment():
+    # user_name_receive = request.form['user_name_give']
+    post_num_receive = request.form['post_num_give']
+    comment_receive = request.form['comment_give']
+
+    doc = {
+        'comment': comment_receive,
+        'post_num' : post_num_receive
+    }
+
+    db.comment.insert_one(doc)
+
+    return jsonify({'msg': 'POST /comment/ 저장'})
+
+#################  김동우 로그인 회원가입 ################
 
 
 @app.route('/')
@@ -64,7 +89,7 @@ def home():
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
-        return render_template('login.html')
+        return render_template('instagram.html')
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
@@ -128,6 +153,11 @@ def login():
         else:
             return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
+
+# 인스타 홈
+@app.route('/mypage1')
+def mypage():
+    return render_template('mypage_.html')
 
 
 

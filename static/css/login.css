@@ -1,19 +1,39 @@
+/* 구현정 CSS 추가 */
 body {
-  margin: 0;
+  max-width: 720px;
+  margin: 0 auto;
+  align-items: center;
+  background-color: rgb(237, 237, 237)
 }
+#logo {
+  width: 200px;
+}
+.download{
+  font-size: 15px;
+  padding-left: 80px;
+}
+.footer {
+  flex: none;
+  justify-content: center;
+  margin-top: 20px;
+}
+.footer #icon-wrapper img {width: 148px;}
+
 
 .login_container {
-  display: flex;
-  justify-content: center;
+  display: table-cell;
+  vertical-align: middle;
   align-items: center;
+  padding-left: 200px;
   width: 600px;
   height: 800px;
 }
 
 .register_container {
-  display: flex;
-  justify-content: center;
+  display: table-cell;
+  vertical-align: middle;
   align-items: center;
+  padding-left: 200px;
   width: 600px;
   height: 800px;
 }
@@ -26,6 +46,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid lightgray;
+  background-color: rgb(255, 255, 255)
 }
 
 .login_wrap_input {
@@ -54,15 +75,16 @@ body {
 }
 
 .login_wrap_input input:valid + label {
-  font-size: 6px;
+  font-size: 12px;
   top: 17px;
   left: 6px;
 }
 
 .login_wrap > div button {
   width: 100px;
-  margin-left: 15px;
   border: 0;
   background-color: #fff;
-  color: cadetblue;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(11, 133, 240);
 }

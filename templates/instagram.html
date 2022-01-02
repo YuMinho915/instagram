@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Instagram</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/insta_gram.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="../static/js/jsjs.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+    <title>Instagram</title>
+
+
 
 </head>
 
@@ -65,34 +81,50 @@
                             <p>𝖍𝖆𝖗𝖗𝖞 𝖕𝖔𝖙𝖙𝖗𝖙</p>
                         </div>
                         <div class="right-wrapper">
-                            <img src="../static/img/more@3x.png">
+                            <div class="dropdown">
+                                <button class="dropbtn"><img src="../static/img/more@3x.png"></button>
+                                <div class="dropdown-content">
+                                  <a href="#">게시물 숨기기</a>
+                                  <a href="#">신고</a>
+                                  <a href="#">팔로우 취소</a>
+                                  <a href="#">링크 복사</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="post-body">
                         <img src="https://mblogthumb-phinf.pstatic.net/MjAyMTAzMTZfMjEg/MDAxNjE1ODIzMTQwNTkx.EqGPt8YLXDLGwZnjHE8bKg-2R_zBgtEBse4cjK17bbYg.ad-IQaSwPor7a_gcY9WwlLDMfDJAlRpgD4cwJ-HC8Msg.JPEG.sopia3139/IMG_8445.JPG?type=w800">
                         <div class="post-icons-wrapper">
                             <div class="left-wrapper">
-                                <!-- 아이콘 크기가 달라서 부득이 하게 이렇게 만들었으나, 클래스 없이 img로 처리하는게 맞습니다! -->
                                 <img class="post-icon" src="../static/img/like@3x.png">
                                 <img class="post-icon-2" src="../static/img/comment@3x.png">
                                 <img class="post-icon" src="../static/img/dm@3x.png">
                             </div>
                             <div class="right-wrapper">
-                                <img src="../static/imgimg/favorite@3x.png">
+                                <img src="../static/img/favorite@3x.png">
                             </div>
                         </div>
                     </div>
                     <div class="post-footer">
                         <div class="post-like-wrapper">
-                            <img src="../static/img/xmas.jpg">
+                            <img src="https://mblogthumb-phinf.pstatic.net/MjAyMTAzMTZfMjEg/MDAxNjE1ODIzMTQwNTkx.EqGPt8YLXDLGwZnjHE8bKg-2R_zBgtEBse4cjK17bbYg.ad-IQaSwPor7a_gcY9WwlLDMfDJAlRpgD4cwJ-HC8Msg.JPEG.sopia3139/IMG_8445.JPG?type=w800">
                             <p><strong>dobi</strong>님 <strong>외 6,61명</strong>이 좋아합니다.</p>
                         </div>
                         <div class="post-content-wrapper">
                             <p class="post-author">도비는자유야</p>
                             <p class="post-content">주인장 어서와</p>
                         </div>
+                        <!-- 댓글 달리는 구간 -->
+                        <div id="comment-box"></div>
+                        <!-- 댓글 입력 -->
+                        <div class="input-group mb-3">
+                            <input type="text" id="comment" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="Recipient's username" >
+                            <div class="input-group-append">
+                              <button class="comment-btn" onclick="save_comment()">입력</button>
+                            </div>
+                        </div>
                         <p class="post-time">
-                            1시간 전
+                            3시간 전
                         </p>
                     </div>
                 </div>
@@ -112,7 +144,7 @@
                             <div class="left-wrapper">
                                 <!-- 아이콘 크기가 달라서 부득이 하게 이렇게 만들었으나, 클래스 없이 img로 처리하는게 맞습니다! -->
                                 <img class="post-icon" src="../static/img/like@3x.png">
-                                <img class="post-icon-2" src="../static/img/comment@3x.png">
+                                <img class="post-icon-2" src="../static/img/camera@3x.png">
                                 <img class="post-icon" src="../static/img/dm@3x.png">
                             </div>
                             <div class="right-wrapper">
@@ -130,7 +162,7 @@
                             <p class="post-content">what a nice day!</p>
                         </div>
                         <p class="post-time">
-                            8시간 전
+                            6시간 전
                         </p>
                     </div>
                 </div>
@@ -148,9 +180,8 @@
                         <img src="https://mblogthumb-phinf.pstatic.net/MjAyMTAzMTZfMjEg/MDAxNjE1ODIzMTQwNTkx.EqGPt8YLXDLGwZnjHE8bKg-2R_zBgtEBse4cjK17bbYg.ad-IQaSwPor7a_gcY9WwlLDMfDJAlRpgD4cwJ-HC8Msg.JPEG.sopia3139/IMG_8445.JPG?type=w800">
                         <div class="post-icons-wrapper">
                             <div class="left-wrapper">
-                                <!-- 아이콘 크기가 달라서 부득이 하게 이렇게 만들었으나, 클래스 없이 img로 처리하는게 맞습니다! -->
                                 <img class="post-icon" src="../static/img/like@3x.png">
-                                <img class="post-icon-2" src="../static/img/comment@3x.png">
+                                <img class="post-icon-2" src="../static/img/camera@3x.png">
                                 <img class="post-icon" src="../static/img/dm@3x.png">
                             </div>
                             <div class="right-wrapper">
@@ -168,7 +199,7 @@
                             <p class="post-content">주인장 어서와</p>
                         </div>
                         <p class="post-time">
-                            1시간 전
+                            7시간 전
                         </p>
                     </div>
                 </div>
@@ -188,7 +219,7 @@
                             <div class="left-wrapper">
                                 <!-- 아이콘 크기가 달라서 부득이 하게 이렇게 만들었으나, 클래스 없이 img로 처리하는게 맞습니다! -->
                                 <img class="post-icon" src="../static/img/like@3x.png">
-                                <img class="post-icon-2" src="../static/img/comment@3x.png">
+                                <img class="post-icon-2" src="../static/img/camera@3x.png">
                                 <img class="post-icon" src="../static/img/dm@3x.png">
                             </div>
                             <div class="right-wrapper">
@@ -218,7 +249,7 @@
                 <img src="../static/img/search@3x.png">
                 <img src="../static/img/trending@3x.png">
                 <img src="../static/img/like@3x.png">
-                <img src="../static/img/is_me.png">
+                <img src="../static/img/home@3x.png">
             </div>
         </div>
     </div>
