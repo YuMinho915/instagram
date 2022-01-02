@@ -1,0 +1,90 @@
+/* 구현정 CSS 추가 */
+body {
+  max-width: 720px;
+  margin: 0 auto;
+  align-items: center;
+  background-color: rgb(237, 237, 237)
+}
+#logo {
+  width: 200px;
+}
+.download{
+  font-size: 15px;
+  padding-left: 80px;
+}
+.footer {
+  flex: none;
+  justify-content: center;
+  margin-top: 20px;
+}
+.footer #icon-wrapper img {width: 148px;}
+
+
+.login_container {
+  display: table-cell;
+  vertical-align: middle;
+  align-items: center;
+  padding-left: 200px;
+  width: 600px;
+  height: 800px;
+}
+
+.register_container {
+  display: table-cell;
+  vertical-align: middle;
+  align-items: center;
+  padding-left: 200px;
+  width: 600px;
+  height: 800px;
+}
+
+.login_wrap {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  background-color: rgb(255, 255, 255)
+}
+
+.login_wrap_input {
+  display: flex;
+  position: relative;
+}
+
+.login_wrap_input input {
+  width: 250px;
+  height: 28px;
+  text-align: left;
+  display: flex;
+  outline: none;
+  margin: 15px 0px;
+  font-size: 10px;
+  padding-left: 5px;
+}
+
+
+.login_wrap_input label {
+  color: lightgray;
+  font-size: 12px;
+  position: absolute;
+  top: 23px;
+  left: 10px;
+}
+
+.login_wrap_input input:valid + label {
+  font-size: 12px;
+  top: 17px;
+  left: 6px;
+}
+
+.login_wrap > div button {
+  width: 100px;
+  border: 0;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(11, 133, 240);
+}
