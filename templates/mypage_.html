@@ -7,49 +7,49 @@
     <link rel="stylesheet" href="../static/css/mypage_.css">
     <title>Instagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="../static/js/jsjs.js"></script>
 </head>
 
 <body>
-    <div id="main">
-        <div id="header">
-            <div class="header-top">
-                <div class="header-id">
-                    <p>dd0ngri__0</p>
-                </div>
-                <img class="header-icon" src="../static/img/menu.png">
+<div id="main">
+    <div id="header">
+        <div class="header-top">
+            <div class="header-id">
+                <p>dd0ngri__0</p>
             </div>
-            <div class="header-middle">
-
-            </div>
+            <img class="header-icon" src="../static/img/menu.png">
         </div>
-        <div id="container">
-            <div id="intro-container">
-                <div class ="image-container">
-                    <div class="image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCVWbIbGuDrX0thYBFbeVTc-fG9WpoHXNRIg&usqp=CAU"/>
-                    </div>
+        <div class="header-middle">
+
+        </div>
+    </div>
+    <div id="container">
+        <div id="intro-container">
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="../static/img/IMG_5.gif">
                 </div>
-                <div class ="count-container">
-                    <div class="count-post">
-                        <p>49<br>
+            </div>
+            <div class="count-container">
+                <div class="count-post">
+                    <p>49<br>
                         게시물</p>
-                    </div>
-                    <div class="count-follower">
-                        <p>2,022
-                        <br>팔로워</p>
-                    </div>
-                    <div class="count-following">
-                        <p>556
-                        <br>팔로잉</p>
-                    </div>
                 </div>
-                <div class ="ment-container">
-                    <p>박다솜<br>
+                <div class="count-follower">
+                    <p>2,022
+                        <br>팔로워</p>
+                </div>
+                <div class="count-following">
+                    <p>556
+                        <br>팔로잉</p>
+                </div>
+            </div>
+            <div class="ment-container">
+                <p>박다솜<br>
                     사진작가<br>
                     안녕하세요 촬영문의는 dm</p>
-                </div>
             </div>
+        </div>
+        <div id="middle-container">
             <div id="story-container">
                 <div class="story-wrapper">
                     <div class="story-on">
@@ -70,41 +70,85 @@
                     <p>🌿</p>
                 </div>
             </div>
-            <div id="post-container">
-                <div class="post-wrapper">
-                    <div class="post-header">
-                        <div class="left-wrapper">
-                            <img src="../static/img/grid.png">
-                        </div>
-                        <div class="right-wrapper">
-                            <img src="../static/img/person.png"/>
+            <div id="music-container">
+                <div class="player">
+                    <div id="info" class="info">
+                        <span class="artist">Flume</span>
+                        <span class="name">Say it</span>
+                        <div class="progress-bar">
+                            <div class="bar"></div>
                         </div>
                     </div>
-                    <div class="post-body">
-                        <div class="post-img">
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
-                            <article><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGaAMoob4SA151DLDQVs1KhefAvdgHdNw2OA&usqp=CAU"></article>
+                    <div id="control-panel" class="control-panel">
+                        <div class="album-art"></div>
+                        <div class="controls">
+                            <div class="prev"></div>
+                            <div id="play" class="play"></div>
+                            <div class="next"></div>
                         </div>
                     </div>
                 </div>
+                <script>
+                    console.clear();
+
+                    class musicPlayer {
+                        constructor() {
+                            this.play = this.play.bind(this);
+                            this.playBtn = document.getElementById('play');
+                            this.playBtn.addEventListener('click', this.play);
+                            this.controlPanel = document.getElementById('control-panel');
+                            this.infoBar = document.getElementById('info');
+                        }
+
+                        play() {
+                            let controlPanelObj = this.controlPanel,
+                                infoBarObj = this.infoBar
+                            Array.from(controlPanelObj.classList).find(function (element) {
+                                return element !== "active" ? controlPanelObj.classList.add('active') : controlPanelObj.classList.remove('active');
+                            });
+
+                            Array.from(infoBarObj.classList).find(function (element) {
+                                return element !== "active" ? infoBarObj.classList.add('active') : infoBarObj.classList.remove('active');
+                            });
+                        }
+                    }
+
+                    const newMusicplayer = new musicPlayer();
+                </script>
             </div>
         </div>
-        <div id="footer">
-            <div id="icon-wrapper">
-                <img onclick="to_instagram()" src="../static/img/home@3x.png">
-                <img src="../static/img/search.png">
-                <img onclick="to_post()" src="../static/img/trending@3x.png">
-                <img src="../static/img/heart.png">
-                <img src="../static/img/share.png">
+        <div id="post-container">
+            <div class="post-header">
+                <div class="left-wrapper">
+                    <img src="../static/img/grid.png">
+                </div>
+                <div class="right-wrapper">
+                    <img src="../static/img/person.png"/>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="row">
+                    {% for feed in feeds %}
+                    <div class="column">
+                       <img src="{{ feed.img }}">
+                    </div>
+                    {% endfor %}
+
+                </div>
+
             </div>
         </div>
     </div>
+</div>
+<div id="footer">
+    <div id="icon-wrapper">
+        <img onclick="to_instagram()" src="../static/img/home@3x.png">
+        <img onclick="to_post()" src="../static/img/trending@3x.png">
+        <img src="../static/img/play.png">
+        <img src="../static/img/heart.png">
+        <img ssrc="../static/img/share.png">
+    </div>
+</div>
+</div>
 </body>
 </html>

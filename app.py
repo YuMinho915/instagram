@@ -5,7 +5,6 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import re
-import certifi
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -15,13 +14,11 @@ SECRET_KEY = 'YESMYNAMEDONGWOO'
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.u0c0t.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=certifi.where())
-db = client.dbinstagram
+client = MongoClient('localhost', 27017)
+db = client.dbinsta
 
 
-@app.route('/mypage')
-def show_main():
-    return render_template('mypage_.html')
+
 
 
 #################################
@@ -39,24 +36,47 @@ def file_upload():
     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
     filename = f'{title_receive}-{mytime}'
     # 파일 저장 경로 설정 (파일은 db가 아니라, 서버 컴퓨터 자체에 저장됨)
-    save_to = f'static/{filename}.{extension}'
+    save_to = f'static/sajin/{filename}.{extension}'
     # 파일 저장!
+
     file.save(save_to)
+    img = f'../static/sajin/{filename}.{extension}'
+
+
+
 
     # 아래와 같이 입력하면 db에 추가 가능!
-    doc = {'title': title_receive, 'img': f'{filename}.{extension}'}
+    token_receive = request.cookies.get('mytoken')
+
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    email_id = payload['id']
+    doc = {'email_id':email_id,'title': title_receive, 'img': img}
     db.camp.insert_one(doc)
 
     return jsonify({'result': 'success'})
 
 
-# 주소에다가 /fileshow/이미지타이틀 입력하면 그 이미지타이틀을 title이라는 변수로 받아옴
-@app.route('/fileshow/<title>')
-def file_show(title):
-    # title은 현재 이미지타이틀이므로, 그것을 이용해서 db에서 이미지 '파일'의 이름을 가지고 옴
-    img_info = db.camp.find_one({'title': title})
-    # 해당 이미지 정보를 jinja 형식으로 사용하기 위해 넘김
-    return render_template('showimg.html', img_info=img_info)
+@app.route('/mypage')
+def mypage():
+
+    feeds = list(db.camp.find({}))
+
+    print(feeds)
+    return render_template('mypage_.html',feeds =feeds)
+
+
+
+# # 주소에다가 /fileshow/이미지타이틀 입력하면 그 이미지타이틀을 title이라는 변수로 받아옴
+# @app.route('/fileshow/<title>')
+# def file_show(email_id):
+#     # title은 현재 이미지타이틀이므로, 그것을 이용해서 db에서 이미지 '파일'의 이름을 가지고 옴
+#
+#     img_info = db.camp.find({'email': email_id})
+#     print(img_info)
+#     # 해당 이미지 정보를 jinja 형식으로 사용하기 위해 넘김
+#     return render_template('mypage_.html', img_info= img_info)
+
+
 
 
 # 구현정 댓글 작업================================================================
@@ -81,6 +101,7 @@ def insta_comment():
     return jsonify({'msg': 'POST /comment/ 저장'})
 
 
+
 # 이동우 로그인 작업==============================================================
 # 아이디 정규표현식
 # 아이디 중복확인
@@ -93,6 +114,7 @@ def is_email(email1):
     else:
         print('아이디 적합')
         return True
+
 
 
 # 비밀번호 정규표현식
@@ -111,6 +133,7 @@ def is_password(pwd):
         return True
 
 
+
 #################  api 하는곳 ################################################################
 @app.route('/')
 def home():
@@ -122,6 +145,7 @@ def home():
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
         return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
+
 
 
 # 회원가입
@@ -147,8 +171,10 @@ def sign_up():
                "nickname": nickname_receive,
                "password": password_hash
                }
+        # db.camp.insert_one({"email": email_receive})
         db.users.insert_one(doc)
         return jsonify({'result': 'success', 'msg': '회원가입 완료'})
+
 
 
 # 로그인 기능 구현
@@ -182,7 +208,7 @@ def mypage():
 
 # mypage에서 main으로 이동시켜주는 def
 @app.route('/instagram')
-def to_home():
+def instagram():
     return render_template("instagram.html")
 
 
