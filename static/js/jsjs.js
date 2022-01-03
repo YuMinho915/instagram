@@ -75,3 +75,12 @@ function posting() {
       let title = $('#find_title').val()
       document.getElementById('link').href = '/fileshow/'+title
     }
+
+    function to_post() {
+        window.location.href = "/post"
+    }
+
+    function to_mypage() {
+        window.location.href = "/mypage"
+    }
+
