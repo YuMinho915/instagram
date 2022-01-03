@@ -13,8 +13,10 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 SECRET_KEY = 'YESMYNAMEDONGWOO'
 
 from pymongo import MongoClient
+
 client = MongoClient('mongodb+srv://test:sparta@cluster0.izgwz.mongodb.net/cluster0?retryWrites=true&w=majority')
 db = client.dbinsta
+
 
 @app.route('/mypage')
 def show_main():
@@ -60,8 +62,10 @@ def file_show(title):
 # 댓글 달기
 @app.route("/comment", methods=["GET"])
 def comment_get():
-    comment_list = list(db.comment.find({},{'_id':False}))
-    return jsonify({'comment':comment_list,'msg': 'GET 연결 완료!'})
+    comment_list = list(db.comment.find({}, {'_id': False}))
+    return jsonify({'comment': comment_list, 'msg': 'GET 연결 완료!'})
+
+
 # 댓글 user 정보랑 저장.
 @app.route("/comment", methods=["POST"])
 def insta_comment():
@@ -75,6 +79,7 @@ def insta_comment():
     db.comment.insert_one(doc)
     return jsonify({'msg': 'POST /comment/ 저장'})
 
+
 # 이동우 로그인 작업==============================================================
 # 아이디 정규표현식
 # 아이디 중복확인
@@ -87,10 +92,12 @@ def is_email(email1):
     else:
         print('아이디 적합')
         return True
+
+
 # 비밀번호 정규표현식
 def is_password(pwd):
     special_char = ['!', '@', '#', '_', '*', '.']
-    if len(pwd) < 8 or len(pwd) > 21:   # 비밀번호 8자 이상 20자 이하
+    if len(pwd) < 8 or len(pwd) > 21:  # 비밀번호 8자 이상 20자 이하
         return False
     elif re.search('[0-9]+', pwd) is None:  # 최소 1개이상 숫자
         return False
@@ -101,6 +108,8 @@ def is_password(pwd):
     else:
         print('비밀번호 적합')
         return True
+
+
 #################  api 하는곳 ################################################################
 @app.route('/')
 def home():
@@ -112,6 +121,8 @@ def home():
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
         return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
+
+
 # 회원가입
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
@@ -138,7 +149,8 @@ def sign_up():
         db.users.insert_one(doc)
         return jsonify({'result': 'success', 'msg': '회원가입 완료'})
 
-#로그인 기능 구현
+
+# 로그인 기능 구현
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -147,7 +159,7 @@ def login():
         email = request.form['email_give']
         password = request.form['password_give']
         password_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
-        result = db.users.find_one({'email': email, 'password':password_hash})
+        result = db.users.find_one({'email': email, 'password': password_hash})
         print(email, password)
         if result is not None:
             payload = {
@@ -161,6 +173,23 @@ def login():
             return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
 
+# mypage로 이동시켜주는 definition
+@app.route('/mypage')
+def mypage():
+    return render_template("mypage_.html")
+
+
+# mypage에서 main으로 이동시켜주는 def
+@app.route('/')
+def to_home():
+    return render_template("instagram.html")
+
+
+# 게시물 올리기로 이동
+@app.route('/post')
+def post():
+    return render_template("post.html")
+
 
 if __name__ == '__main__':
-   app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
