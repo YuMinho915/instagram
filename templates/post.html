@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/mypage_.css">
+    <script type="text/javascript" src="../static/js/jsjs.js"></script>
     <title>Instagram</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
 </head>
@@ -21,8 +23,10 @@
         <div class="post-upload">
             <img src="../static/img/pngwing.com.png">
             <h2>사진과 동영상을 인스타그램에 게시합니다 </h2>
-            <div class="post-btn-btn">
-            <button class="w-btn w-btn-blue" type="button"> 컴퓨터에서 선택 </button>
+            <div class="file-upload">
+                <input style="width:150px;" type="text" id="title" placeholder="업로드할 이미지 제목">
+                <input type="file" id="file">
+                <button onclick="posting()" class="w-btn w-btn-blue" type="button"> 선택파일 업로드 </button>
             </div>
         </div>
 

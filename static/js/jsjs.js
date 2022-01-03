@@ -1,4 +1,4 @@
-// 구현정 댓글 작업 중==============================================================
+// 구현정 댓글 작업==============================================================
 // 댓글 삭제는 어떻게 하는가...
 function del(){
     $('.post-comment').hide()
@@ -47,3 +47,31 @@ function save_comment() {
         }
     });
 }
+
+// 구현정 게시물 업로드==============================================================
+function posting() {
+      let title = $('#title').val()
+      let file = $('#file')[0].files[0]
+      let form_data = new FormData()
+
+      form_data.append("title_give", title)
+      form_data.append("file_give", file)
+
+      $.ajax({
+          type: "POST",
+          url: "/fileupload",
+          data: form_data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+              alert(response["result"])
+              window.location.reload()
+          }
+      });
+    }
+
+    function find_img() {
+      let title = $('#find_title').val()
+      document.getElementById('link').href = '/fileshow/'+title
+    }
