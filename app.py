@@ -13,12 +13,12 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 SECRET_KEY = 'YESMYNAMEDONGWOO'
 
 from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb+srv://test:sparta@cluster0.izgwz.mongodb.net/cluster0?retryWrites=true&w=majority')
 db = client.dbinsta
 
 @app.route('/mypage')
 def show_main():
-    return render_template('mypage1.html')
+    return render_template('mypage_.html')
 
 
 #################################
@@ -159,6 +159,8 @@ def login():
         # 찾지 못하면
         else:
             return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
-        
+
+
+
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)
