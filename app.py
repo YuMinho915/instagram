@@ -5,6 +5,7 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import re
+import certifi
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -14,8 +15,8 @@ SECRET_KEY = 'YESMYNAMEDONGWOO'
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.izgwz.mongodb.net/cluster0?retryWrites=true&w=majority')
-db = client.dbinsta
+client = MongoClient('mongodb+srv://test:sparta@cluster0.u0c0t.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=certifi.where())
+db = client.dbinstagram
 
 
 @app.route('/mypage')
@@ -180,7 +181,7 @@ def mypage():
 
 
 # mypage에서 main으로 이동시켜주는 def
-@app.route('/')
+@app.route('/instagram')
 def to_home():
     return render_template("instagram.html")
 

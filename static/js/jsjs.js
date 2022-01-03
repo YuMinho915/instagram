@@ -80,6 +80,10 @@ function posting() {
         window.location.href = "/post"
     }
 
+    function to_instagram() {
+        window.location.href = "/instagram"
+    }
+
     function to_mypage() {
         window.location.href = "/mypage"
     }
