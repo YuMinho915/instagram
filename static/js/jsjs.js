@@ -84,3 +84,7 @@ function posting() {
         window.location.href = "/mypage"
     }
 
+    function to_main() {
+        window.location.href = "/"
+    }
+
