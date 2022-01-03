@@ -88,3 +88,4 @@ function posting() {
         window.location.href = "/mypage"
     }
 
+
