@@ -44,6 +44,8 @@ body {
 .header-id p {
     font-size: 23px;
     text-align: center;
+    word-wrap: normal;
+    white-space: nowrap;
     margin: auto;
     padding: 4% 6%;
 }
@@ -121,7 +123,6 @@ body {
 /* 게시물 올리기 CSS */
 /* 게시물 올리기 CSS */
 /* 게시물 올리기 CSS */
-
 
 
 
