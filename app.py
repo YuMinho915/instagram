@@ -14,11 +14,8 @@ SECRET_KEY = 'YESMYNAMEDONGWOO'
 
 from pymongo import MongoClient
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb+srv://test:sparta@cluster0.izgwz.mongodb.net/cluster0?retryWrites=true&w=majority')
 db = client.dbinsta
-
-
-
 
 
 #################################
@@ -43,8 +40,6 @@ def file_upload():
     img = f'../static/sajin/{filename}.{extension}'
 
 
-
-
     # 아래와 같이 입력하면 db에 추가 가능!
     token_receive = request.cookies.get('mytoken')
 
@@ -61,22 +56,12 @@ def mypage():
 
     feeds = list(db.camp.find({}))
 
-    print(feeds)
-    return render_template('mypage_.html',feeds =feeds)
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    email_id = payload['id']
+    nicknames_search = db.users.find_one({'email':email_id})
 
-
-
-# # 주소에다가 /fileshow/이미지타이틀 입력하면 그 이미지타이틀을 title이라는 변수로 받아옴
-# @app.route('/fileshow/<title>')
-# def file_show(email_id):
-#     # title은 현재 이미지타이틀이므로, 그것을 이용해서 db에서 이미지 '파일'의 이름을 가지고 옴
-#
-#     img_info = db.camp.find({'email': email_id})
-#     print(img_info)
-#     # 해당 이미지 정보를 jinja 형식으로 사용하기 위해 넘김
-#     return render_template('mypage_.html', img_info= img_info)
-
-
+    return render_template('mypage_.html',feeds =feeds, nicknames_search = nicknames_search)
 
 
 # 구현정 댓글 작업================================================================
@@ -102,7 +87,7 @@ def insta_comment():
 
 
 
-# 이동우 로그인 작업==============================================================
+# 로그인 작업     (김동우)==============================================================
 # 아이디 정규표현식
 # 아이디 중복확인
 def is_email(email1):
@@ -134,17 +119,22 @@ def is_password(pwd):
 
 
 
-#################  api 하는곳 ################################################################
+#################  api 하는곳 (김동우)################################################################
 @app.route('/')
 def home():
     token_receive = request.cookies.get('mytoken')
+    feeds = list(db.camp.find({}))
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        return render_template('instagram.html')
+        email_id = payload['id']
+        nicknames_search = db.users.find_one({'email': email_id})
+        print(nicknames_search)
+        return render_template('instagram.html',feeds=feeds,nicknames_search=nicknames_search)
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
         return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
+
 
 
 
@@ -172,6 +162,7 @@ def sign_up():
                "password": password_hash
                }
         # db.camp.insert_one({"email": email_receive})
+        print(email_receive,password_receive)
         db.users.insert_one(doc)
         return jsonify({'result': 'success', 'msg': '회원가입 완료'})
 
@@ -187,7 +178,7 @@ def login():
         password = request.form['password_give']
         password_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
         result = db.users.find_one({'email': email, 'password': password_hash})
-        print(email, password)
+
         if result is not None:
             payload = {
                 'id': email,
@@ -200,10 +191,7 @@ def login():
             return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
 
-# mypage로 이동시켜주는 definition
-@app.route('/mypage')
-def mypage():
-    return render_template("mypage_.html")
+
 
 
 # mypage에서 main으로 이동시켜주는 def

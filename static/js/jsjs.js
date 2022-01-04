@@ -89,3 +89,17 @@ function posting() {
     }
 
 
+    function q1() {
+        $.ajax({
+            type: "GET",
+            url: "http://spartacodingclub.shop/sparta_api/rtan",
+            data: {},
+            success: function (response) {
+                let imgurl = response['url'];
+                $("#img-rtan").attr("src", imgurl);
+
+
+            }
+        })
+    }
+

@@ -9,7 +9,15 @@
     <title>Instagram</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-
+     <meta property="og:title" content="13팀 첫번째 팀프로젝트"/>
+    <meta property="og:description" content="2022 시작을 인스타그램 클론코딩과 함께"/>
+    <meta property="og:image" content="../static/img/ogg.jpg"/>
+    <script type="text/javascript" src="../static/js/jsjs.js"></script>
+<style>
+    .sajinbutton {
+        margin: 10px 0px 0px 300px;
+    }
+</style>
 </head>
 
 <body>
@@ -24,9 +32,11 @@
             <img src="../static/img/pngwing.com.png">
             <h2>사진과 동영상을 인스타그램에 게시합니다 </h2>
             <div class="file-upload">
-                <input style="width:150px;" type="text" id="title" placeholder="업로드 이미지 제목">
+                <input style="width:150px;" type="text" id="title" placeholder="업로드할 이미지 제목">
                 <input type="file" id="file">
-                <button onclick="posting()" class="w-btn w-btn-blue" type="button"> 선택파일 업로드 </button>
+
+                <div class="sajinbutton"><button onclick="posting()" class="w-btn w-btn-blue" type="button"> 선택파일 업로드 </button></div>
+
             </div>
         </div>
 

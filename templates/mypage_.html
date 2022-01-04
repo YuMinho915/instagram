@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="../static/css/mypage_.css">
     <title>Instagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <meta property="og:title" content="13팀 첫번째 팀프로젝트"/>
+    <meta property="og:description" content="2022 시작을 인스타그램 클론코딩과 함께"/>
+    <meta property="og:image" content="../static/img/ogg.jpg"/>
+    <script type="text/javascript" src="../static/js/jsjs.js"></script>
+
+
 </head>
 
 <body>
@@ -14,7 +21,7 @@
     <div id="header">
         <div class="header-top">
             <div class="header-id">
-                <p>dd0ngri__0</p>
+                <p> {{ nicknames_search.nickname}}</p>
             </div>
             <img class="header-icon" src="../static/img/menu.png">
         </div>
@@ -26,7 +33,7 @@
         <div id="intro-container">
             <div class="image-container">
                 <div class="image-wrapper">
-                    <img src="../static/img/IMG_5.gif">
+                    <img id="img-rtan" src="http://spartacodingclub.shop/static/images/rtans/SpartaIcon11.png"/>
                 </div>
             </div>
             <div class="count-container">
@@ -44,9 +51,10 @@
                 </div>
             </div>
             <div class="ment-container">
-                <p>박다솜<br>
-                    사진작가<br>
-                    안녕하세요 촬영문의는 dm</p>
+                <p>김동우 <button class="a" onclick="q1()">프로필 사진</button><br>
+
+                    천재개발자<br>
+                    웹 페이지 1개 당 10억만 받겠습니다</p>
             </div>
         </div>
         <div id="middle-container">
@@ -128,30 +136,12 @@
             </div>
             <div class="post-body">
                 <div class="row">
-                    <div class="column">
-                        <img src="../static/img/IMG_1.jpg">
-                    </div>
-                    <div class="column">
-                        <img src="../static/img/IMG_2.jpg">
-                    </div>
-                    <div class="column">
-                        <img src="../static/img/IMG_3.jpg">
-                    </div>
-                    <div class="column">
-                        <img src="../static/img/IMG_4.jpg">
-                    </div>
-                    <div class="column">
-                        <img src="../static/img/IMG_6.gif">
-                    </div>
-                    <div class="column">
-                        <img src="../static/img/IMG_7.jpg">
-                    </div>
-                    <div class="column">
-                        <img src="../static/img/IMG_8.jpg">
-                    </div>
-                    <div class="column">
-                        <img src="../static/img/IMG_9.gif">
-                    </div>
+                    {% for feed in feeds %}
+                        <div class="column">
+                            <img src="{{ feed.img }}">
+                        </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
@@ -160,10 +150,10 @@
 <div id="footer">
     <div id="icon-wrapper">
         <img onclick="to_instagram()" src="../static/img/home@3x.png">
-        <img onclick="to_post()" src="../static/img/trending@3x.png">
+        <img onclick="to_post()" src="../static/img/hi.png">
         <img src="../static/img/play.png">
         <img src="../static/img/heart.png">
-        <img ssrc="../static/img/share.png">
+        <img src="../static/img/share.png">
     </div>
 </div>
 </div>
