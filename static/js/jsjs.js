@@ -81,7 +81,7 @@ function posting() {
     }
 
     function to_instagram() {
-        window.location.href = "/instagram"
+        window.location.href = "/"
     }
 
     function to_mypage() {
@@ -103,3 +103,10 @@ function posting() {
         })
     }
 
+function turnOnOff(x) {
+		if (x.src.match("like@3x")) {
+			x.src = "../img/heartred.png"
+		} else {
+			x.src = "../static/img/like@3x.png"
+		}
+	}

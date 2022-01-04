@@ -5,11 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/insta_gram.css">
-
     <meta property="og:title" content="13팀 첫번째 팀프로젝트"/>
     <meta property="og:description" content="2022 시작을 인스타그램 클론코딩과 함께"/>
     <meta property="og:image" content="../static/img/ogg.jpg"/>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -18,7 +16,6 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="../static/js/jsjs.js"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -127,7 +124,7 @@
                         <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA3MjNfNTkg/MDAxNTAwNzM2Njc2ODQw.lgP1tdd7LebGUXKIBXGyfoaO7gAZd6k6P-GPxSgMls8g.wPY06Q2Mzv8usvIFdc3BXeGmue9zZMzYvVT7QPuiIQog.JPEG.nicoll1027/%ED%95%B4%EB%A6%AC%ED%8F%AC%ED%84%B0_%EB%B9%84%ED%95%98%EC%9D%B8%EB%93%9C_%EC%8A%A4%ED%86%A0%EB%A6%AC__%EC%8A%AC%ED%94%88%EC%A7%84%EC%8B%A4.JPG?type=w2">
                         <div class="post-icons-wrapper">
                             <div class="left-wrapper">
-                                <img class="post-icon" src="../static/img/like@3x.png">
+                                <img class="post-icon" onclick = turnOnOff(this) src="../static/img/like@3x.png">
                                 <img class="post-icon-2" src="../static/img/comment@3x.png">
                                 <img class="post-icon" src="../static/img/dm@3x.png">
                             </div>
@@ -188,7 +185,7 @@
                         <img src="{{ feed.img }}">
                         <div class="post-icons-wrapper">
                             <div class="left-wrapper">
-                                <img class="post-icon" src="../static/img/like@3x.png">
+                                <img class="post-icon" onclick = turnOnOff(this) src="../static/img/like@3x.png">
                                 <img class="post-icon-2" src="../static/img/comment@3x.png">
                                 <img class="post-icon" src="../static/img/dm@3x.png">
                             </div>

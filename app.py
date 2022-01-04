@@ -124,17 +124,16 @@ def is_password(pwd):
 def home():
     token_receive = request.cookies.get('mytoken')
     feeds = list(db.camp.find({}))
+    print(feeds)
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
         email_id = payload['id']
         nicknames_search = db.users.find_one({'email': email_id})
-        print(nicknames_search)
         return render_template('instagram.html',feeds=feeds,nicknames_search=nicknames_search)
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
         return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
-
 
 
 
@@ -194,10 +193,10 @@ def login():
 
 
 
-# mypage에서 main으로 이동시켜주는 def
-@app.route('/instagram')
-def instagram():
-    return render_template("instagram.html")
+# # mypage에서 main으로 이동시켜주는 def
+# @app.route('/')
+# def instagram():
+#     return render_template("instagram.html")
 
 
 # 게시물 올리기로 이동
