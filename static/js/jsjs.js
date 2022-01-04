@@ -105,7 +105,7 @@ function posting() {
 
 function turnOnOff(x) {
 		if (x.src.match("like@3x")) {
-			x.src = "../img/heartred.png"
+			x.src = "https://cdn-icons-png.flaticon.com/512/2107/2107845.png"
 		} else {
 			x.src = "../static/img/like@3x.png"
 		}
